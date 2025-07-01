@@ -1,4 +1,4 @@
-# Eliza
+# Eve
 
 A framework for multi-agent development and deployment
 
@@ -37,36 +37,36 @@ A framework for multi-agent development and deployment
 
 ### Use the CLI (Recommended)
 
-The ElizaOS CLI provides the fastest and most reliable way to create, configure, and run agents. It handles all the complex setup automatically.
+The EveOS CLI provides the fastest and most reliable way to create, configure, and run agents. It handles all the complex setup automatically.
 
 #### 1. Install the CLI
 
 ```bash
-# Install the ElizaOS CLI globally
-bun install -g @elizaos/cli
+# Install the EveOS CLI globally
+bun install -g @Eveos/cli
 
 # Verify installation
-elizaos --version
+Eveos --version
 
 # Get help with available commands
-elizaos --help
+Eveos --help
 ```
 
 #### 2. Create Your First Project
 
 ```bash
 # Create a new project with interactive setup
-elizaos create my-agent
+Eveos create my-agent
 
 # Or create with specific options (skips prompts)
-elizaos create my-agent --yes --type project
+Eveos create my-agent --yes --type project
 ```
 
 **Recommended Options for Beginners:**
 
 - **Database**: `pglite` (lightweight, no setup required)
 - **Model Provider**: `openai` (most reliable and well-tested)
-- **Project Type**: `project` (full ElizaOS application with runtime and agents)
+- **Project Type**: `project` (full EveOS application with runtime and agents)
 
 #### 3. Configure Your Agent
 
@@ -74,7 +74,7 @@ elizaos create my-agent --yes --type project
 cd my-agent
 
 # Edit your agent's character file
-elizaos env edit-local
+Eveos env edit-local
 
 # Or manually edit the .env file with your preferred editor
 nano .env
@@ -98,10 +98,10 @@ DISCORD_API_TOKEN=your_discord_bot_token
 
 ```bash
 # Build and start your agent
-elizaos start
+Eveos start
 
 # Or start with debug logging for development
-LOG_LEVEL=debug elizaos start
+LOG_LEVEL=debug Eveos start
 ```
 
 After starting, your agent will be available at:
@@ -115,60 +115,60 @@ After starting, your agent will be available at:
 # Make changes to your agent code
 # Then rebuild and restart
 bun run build
-elizaos start
+Eveos start
 
 # Run tests to verify your changes
-elizaos test
+Eveos test
 ```
 
 #### Advanced CLI Commands
 
 ```bash
 # Create specific components
-elizaos create my-plugin --type plugin    # Create a new plugin
-elizaos create my-agent --type agent      # Create a new agent character
-elizaos create my-tee --type tee          # Create a TEE project
+Eveos create my-plugin --type plugin    # Create a new plugin
+Eveos create my-agent --type agent      # Create a new agent character
+Eveos create my-tee --type tee          # Create a TEE project
 
 # Environment management
-elizaos env list            # Show all environment variables
-elizaos env reset           # Reset to default .env.example
+Eveos env list            # Show all environment variables
+Eveos env reset           # Reset to default .env.example
 
 # Testing options
-elizaos test --name "my-test"    # Run specific tests
-elizaos test e2e                 # Run end-to-end tests only
-elizaos test component           # Run component tests only
+Eveos test --name "my-test"    # Run specific tests
+Eveos test e2e                 # Run end-to-end tests only
+Eveos test component           # Run component tests only
 
 # Agent management
-elizaos agent list                      # List all available agents
-elizaos agent start --name "Agent"     # Start a specific agent by name
-elizaos agent stop --name "Agent"      # Stop a running agent
-elizaos agent get --name "Agent"       # Get agent details
-elizaos agent set --name "Agent" --file config.json  # Update agent configuration
+Eveos agent list                      # List all available agents
+Eveos agent start --name "Agent"     # Start a specific agent by name
+Eveos agent stop --name "Agent"      # Stop a running agent
+Eveos agent get --name "Agent"       # Get agent details
+Eveos agent set --name "Agent" --file config.json  # Update agent configuration
 ```
 
 #### Debugging and Logging
 
-ElizaOS uses comprehensive logging to help you understand what your agent is doing:
+EveOS uses comprehensive logging to help you understand what your agent is doing:
 
 ```bash
 # Different log levels
-LOG_LEVEL=error elizaos start    # Only errors
-LOG_LEVEL=info elizaos start     # General information (default)
-LOG_LEVEL=debug elizaos start    # Detailed debugging info
-LOG_LEVEL=verbose elizaos start  # Everything (very detailed)
+LOG_LEVEL=error Eveos start    # Only errors
+LOG_LEVEL=info Eveos start     # General information (default)
+LOG_LEVEL=debug Eveos start    # Detailed debugging info
+LOG_LEVEL=verbose Eveos start  # Everything (very detailed)
 
 # Advanced debugging (combine with LOG_LEVEL=debug)
-ELIZA_DEBUG=true elizaos start          # Enable ElizaOS debug output
-NODE_ENV=development elizaos start      # Development mode with extra logging
+Eve_DEBUG=true Eveos start          # Enable EveOS debug output
+NODE_ENV=development Eveos start      # Development mode with extra logging
 ```
 
 **Pro Tips:**
 
-- Use `elizaos --help` to see all available commands and global options
-- Use `elizaos <command> --help` for detailed help on any specific command
+- Use `Eveos --help` to see all available commands and global options
+- Use `Eveos <command> --help` for detailed help on any specific command
 - Use `LOG_LEVEL=debug` during development to see detailed execution flow
 - Check the web interface at http://localhost:3000 for real-time agent status
-- Use `elizaos test` frequently to catch issues early
+- Use `Eveos test` frequently to catch issues early
 - Keep your `.env` file secure and never commit it to version control
 
 #### Available Commands Reference
@@ -176,24 +176,24 @@ NODE_ENV=development elizaos start      # Development mode with extra logging
 **All CLI Commands:**
 
 ```bash
-elizaos create     # Create new projects, plugins, agents, or TEE projects
-elizaos start      # Start the agent server with character profiles
-elizaos agent      # Manage agents (list, start, stop, get, set)
-elizaos test       # Run tests (component, e2e, or all)
-elizaos env        # Manage environment variables and configuration
-elizaos dev        # Start in development mode with auto-rebuild
-elizaos update     # Update CLI and project dependencies
-elizaos stop       # Stop all running ElizaOS agents
-elizaos publish    # Publish plugins to registry
-elizaos plugins    # Manage and discover plugins
-elizaos monorepo   # Monorepo development utilities
-elizaos tee        # Trusted Execution Environment commands
+Eveos create     # Create new projects, plugins, agents, or TEE projects
+Eveos start      # Start the agent server with character profiles
+Eveos agent      # Manage agents (list, start, stop, get, set)
+Eveos test       # Run tests (component, e2e, or all)
+Eveos env        # Manage environment variables and configuration
+Eveos dev        # Start in development mode with auto-rebuild
+Eveos update     # Update CLI and project dependencies
+Eveos stop       # Stop all running EveOS agents
+Eveos publish    # Publish plugins to registry
+Eveos plugins    # Manage and discover plugins
+Eveos monorepo   # Monorepo development utilities
+Eveos tee        # Trusted Execution Environment commands
 
 # Get help for any specific command
-elizaos <command> --help    # e.g., elizaos create --help, elizaos agent --help
+Eveos <command> --help    # e.g., Eveos create --help, Eveos agent --help
 ```
 
-### Manually Start Eliza (Only recommended if you know what you are doing)
+### Manually Start Eve (Only recommended if you know what you are doing)
 
 #### Prerequisites
 
@@ -205,7 +205,7 @@ elizaos <command> --help    # e.g., elizaos create --help, elizaos agent --help
 
 ```bash
 # Clone the repository
-git clone https://github.com/elizaos/eliza.git
+git clone https://github.com/Eveos/Eve.git
 
 # This project iterates fast, so we recommend checking out the latest release
 git checkout $(git describe --tags --abbrev=0)
@@ -223,7 +223,7 @@ cp .env.example .env
 
 Note: .env is optional. If you're planning to run multiple distinct agents, you can pass secrets through the character JSON
 
-#### Start Eliza
+#### Start Eve
 
 Important! We now use Bun. If you are using npm, you will need to install Bun:
 https://bun.sh/docs/installation
@@ -236,7 +236,7 @@ bun start
 
 ### Interact via Browser
 
-Once Eliza is running, access the modern web interface at http://localhost:3000. It has been professionally redesigned and features:
+Once Eve is running, access the modern web interface at http://localhost:3000. It has been professionally redesigned and features:
 
 - A welcoming dashboard with a gradient hero section and clear calls-to-action for creating agents and groups.
 - Visually enhanced cards for managing agents and groups, including status indicators and member counts.
@@ -248,11 +248,11 @@ Once Eliza is running, access the modern web interface at http://localhost:3000.
 
 ## Citation
 
-We now have a [paper](https://arxiv.org/pdf/2501.06781) you can cite for the Eliza OS:
+We now have a [paper](https://arxiv.org/pdf/2501.06781) you can cite for the Eve OS:
 
 ```bibtex
-@article{walters2025eliza,
-  title={Eliza: A Web3 friendly AI Agent Operating System},
+@article{walters2025Eve,
+  title={Eve: A Web3 friendly AI Agent Operating System},
   author={Walters, Shaw and Gao, Sam and Nerd, Shakker and Da, Feng and Williams, Warren and Meng, Ting-Chien and Han, Hunter and He, Frank and Zhang, Allen and Wu, Ming and others},
   journal={arXiv preprint arXiv:2501.06781},
   year={2025}
@@ -261,13 +261,13 @@ We now have a [paper](https://arxiv.org/pdf/2501.06781) you can cite for the Eli
 
 ## Contributors
 
-<a href="https://github.com/elizaos/eliza/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=elizaos/eliza" alt="Eliza project contributors" />
+<a href="https://github.com/Eveos/Eve/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Eveos/Eve" alt="Eve project contributors" />
 </a>
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=elizaos/eliza&type=Date)](https://star-history.com/#elizaos/eliza&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=Eveos/Eve&type=Date)](https://star-history.com/#Eveos/Eve&Date)
 
 ## Git Hooks
 
@@ -283,7 +283,7 @@ bun run pre-commit
 
 ## 📂 Repository Structure
 
-Eliza is organized as a monorepo using Bun, Lerna, and Turbo for efficient package management and build orchestration. Here's a detailed overview of the project structure:
+Eve is organized as a monorepo using Bun, Lerna, and Turbo for efficient package management and build orchestration. Here's a detailed overview of the project structure:
 
 - **`/` (Root)**:
 
@@ -298,28 +298,28 @@ Eliza is organized as a monorepo using Bun, Lerna, and Turbo for efficient packa
   - `Dockerfile`, `docker-compose.yaml`: Container configurations for deployment
   - `lerna.json`, `package.json`, `turbo.json`: Monorepo configuration and workspace definitions
 
-- **`/packages/`**: Core components of the Eliza framework:
-  - `core/`: The foundational package (@elizaos/core) implementing:
+- **`/packages/`**: Core components of the Eve framework:
+  - `core/`: The foundational package (@Eveos/core) implementing:
     - LangChain integration for AI model interactions
     - PDF processing capabilities
     - Logging and error handling infrastructure
-  - `app/`: Tauri-based cross-platform application (@elizaos/app)
+  - `app/`: Tauri-based cross-platform application (@Eveos/app)
     - React-based UI implementation
     - Tauri plugins for system integration
     - Desktop and mobile builds support
-  - `autodoc/`: Documentation automation tool (@elizaos/autodoc)
+  - `autodoc/`: Documentation automation tool (@Eveos/autodoc)
     - LangChain-powered documentation generation
     - TypeScript parsing and analysis
     - GitHub integration via Octokit
-  - `cli/`: Command-line interface for Eliza management
+  - `cli/`: Command-line interface for Eve management
   - `client/`: Client libraries for web interfaces
-  - `create-eliza/`: Project scaffolding tool
+  - `create-Eve/`: Project scaffolding tool
   - `docs/`: Official documentation source files
-  - `plugin-bootstrap/`: Core agent initialization (@elizaos/plugin-bootstrap)
+  - `plugin-bootstrap/`: Core agent initialization (@Eveos/plugin-bootstrap)
     - Provides fundamental agent actions (reply, follow/unfollow, mute/unmute)
     - Implements core evaluators and providers
     - Handles message processing and world events
-  - `plugin-sql/`: Database integration (@elizaos/plugin-sql)
+  - `plugin-sql/`: Database integration (@Eveos/plugin-sql)
     - PostgreSQL integration with PGLite support
     - Drizzle ORM for type-safe queries
     - Migration management tools
@@ -327,11 +327,11 @@ Eliza is organized as a monorepo using Bun, Lerna, and Turbo for efficient packa
   - `plugin-starter/`: Template for creating new plugins
   - `project-starter/`, `project-tee-starter/`: Project templates
 
-This architecture enables modular development, clear separation of concerns, and scalable feature implementation across the Eliza ecosystem.
+This architecture enables modular development, clear separation of concerns, and scalable feature implementation across the Eve ecosystem.
 
 ## Tauri Application CI/CD and Signing
 
-The Eliza application, built with Tauri and located in `packages/app`, is configured for cross-platform continuous integration and deployment. This setup automates the building and releasing of the application for various operating systems.
+The Eve application, built with Tauri and located in `packages/app`, is configured for cross-platform continuous integration and deployment. This setup automates the building and releasing of the application for various operating systems.
 
 ### Overview
 
@@ -357,7 +357,7 @@ Two main GitHub Actions workflows handle the CI/CD process for the Tauri applica
 
 ### Mobile Application Backend
 
-The mobile versions of the Eliza Tauri application (Android and iOS) are configured to connect to an external backend service hosted at `https://api.eliza.how`. This connection is essential for certain functionalities of the mobile app.
+The mobile versions of the Eve Tauri application (Android and iOS) are configured to connect to an external backend service hosted at `https://api.Eve.how`. This connection is essential for certain functionalities of the mobile app.
 
 The Content Security Policy (CSP) in `packages/app/src-tauri/tauri.conf.json` has been updated to allow `connect-src` directives to this specific domain, ensuring that the mobile app can securely communicate with its backend.
 
